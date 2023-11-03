@@ -1,9 +1,10 @@
+"use client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const fetchFurnitures = createAsyncThunk(
+export const fetchFurnitures = createAsyncThunk(
   "furnitures/getFurnitures",
-  async (thunkAPI) => {
+  async () => {
     let response = await axios("http://localhost:3004/cosmetics");
     let result = response.data;
     return result;
