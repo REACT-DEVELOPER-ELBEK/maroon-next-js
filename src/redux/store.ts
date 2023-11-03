@@ -1,11 +1,13 @@
 "use client";
 import { configureStore } from "@reduxjs/toolkit";
 import furnitureSlice from "./features/furnitureSlice";
+import deleteStudentSlicer from './features/furnitureSlice'
 
 export function makeStore() {
   return configureStore({
     reducer: {
       furnitures: furnitureSlice,
+      deleteStudent: deleteStudentSlicer
     },
   });
 }

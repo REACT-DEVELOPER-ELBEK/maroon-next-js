@@ -5,19 +5,17 @@ import axios from "axios";
 export const fetchFurnitures = createAsyncThunk(
   "furnitures/getFurnitures",
   async () => {
-    let response = await axios(
-      "https://6544ff835a0b4b04436d689a.mockapi.io/students"
-    );
-    let result = response.data;
-    return result;
+    try {
+      let response = await axios(
+        "https://6544ff835a0b4b04436d689a.mockapi.io/students"
+      );
+      let result = response.data;
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
-
-// interface ff {
-//   loading: boolean;
-//   data: [];
-//   error: boolean;
-// }
 
 const initialState = {
   loading: false,

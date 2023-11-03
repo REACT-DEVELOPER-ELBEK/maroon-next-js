@@ -8,6 +8,7 @@ import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import Loading from "../loading";
 import "./home.scss";
+import { deleteStudent } from "@/redux/features/delete";
 interface typ {
   id: number;
   firstName: string;
@@ -18,8 +19,10 @@ interface typ {
 const Home = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state.furnitures);
+  const deleteSelector = useSelector((state:RootState)=>state.deleteStudent)
   useEffect(() => {
     dispatch(fetchFurnitures());
+    dispatch(deleteStudent());
   }, []);
   return selector.loading ? (
     <Loading />
@@ -46,7 +49,7 @@ const Home = () => {
                 <button>
                   <BiEdit />
                 </button>
-                <button>
+                <button onClick={()=>deleteStudent(student.id)}>
                   <MdDelete />
                 </button>
               </td>
