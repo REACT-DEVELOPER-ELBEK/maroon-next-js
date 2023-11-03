@@ -1,0 +1,45 @@
+$base-spacing-unit: 24px;
+$half-spacing-unit: $base-spacing-unit / 2;
+
+$color-alpha: #1772ff;
+$color-form-highlight: #eeeeee;
+
+table {
+  width: 100%;
+  border: 1px solid $color-form-highlight;
+  thead {
+    width: 100%;
+    background: #000;
+    th {
+      background: #000;
+      padding: ($half-spacing-unit * 1.5) 0;
+      color: #fff;
+    }
+  }
+
+  tr {
+    &:nth-of-type(odd) {
+      background: $color-form-highlight;
+    }
+
+    th,
+    td {
+      text-align: center;
+      padding: ($half-spacing-unit * 1.5) 0;
+      font-weight: 600;
+    }
+  }
+  td {
+    &:last-child {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      button {
+        font-size: 40px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -5,7 +5,9 @@ import axios from "axios";
 export const fetchFurnitures = createAsyncThunk(
   "furnitures/getFurnitures",
   async () => {
-    let response = await axios("http://localhost:3004/cosmetics");
+    let response = await axios(
+      "https://6544ff835a0b4b04436d689a.mockapi.io/students"
+    );
     let result = response.data;
     return result;
   }
@@ -34,9 +36,11 @@ const furnitureSlicer = createSlice({
       })
       .addCase(fetchFurnitures.fulfilled, (state, action) => {
         state.data = action.payload;
+        state.loading = false;
       })
       .addCase(fetchFurnitures.rejected, (state) => {
         (state.error = true), console.log("@API_ERROR");
+        state.loading = false;
       });
   },
 });
